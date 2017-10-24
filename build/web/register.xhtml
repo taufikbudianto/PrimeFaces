@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <script name="jquery/jquery.js" library="primefaces"></script>
+        <title>Register Employee</title>
+    </h:head>
+    <h:form>
+    <h:panelGrid id="grid" cellpadding="5" columns="2" style="margin-bottom:10px">
+        <f:facet name="header">
+            <p:messages id="msgs" />
+        </f:facet>
+ 
+        <p:outputLabel for="name" value="Nama :" />
+        <p:inputText id="name" value="#{registerUser.user.name}" required="true" requiredMessage="Name is required." />
+        
+        <p:outputLabel for="address" value="Alamat :" />
+        <p:inputText id="address" value="#{registerUser.user.address}" />
+ 
+        <p:outputLabel for="email" value="Email :" />
+        <p:inputText id="email" value="#{registerUser.user.email}" />
+    </h:panelGrid>
+ 
+    <h:panelGrid columns="6" cellpadding="5">
+        <p:commandButton value="All" id="btnAll" process="@all" update="grid" actionListener="#{registerUser.save}" />
+    </h:panelGrid>
+</h:form>
+</html>
